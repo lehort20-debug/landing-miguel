@@ -16,7 +16,7 @@ import { ExportModal } from './components/ExportModal';
 import { QRCodeModal } from './components/QRCodeModal';
 import { Sparkles, X } from 'lucide-react';
 
-const STORAGE_KEY = 'landing_miguel_garcia_amador_v4';
+const STORAGE_KEY = 'landing_miguel_garcia_amador_v5';
 
 export default function App() {
   // Load saved state or default
