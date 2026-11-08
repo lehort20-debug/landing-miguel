@@ -53,30 +53,30 @@ export const Hero: React.FC<HeroProps> = ({
   };
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploadedRealPhoto, setUploadedRealPhoto] = useState<string | null>(() => {
-    return localStorage.getItem('miguel_custom_real_photo') || null;
+    return localStorage.getItem('miguel_custom_real_photo_v2') || null;
   });
 
   // Vertical position for photo centering (default 15% focuses on head/face in portraits)
   const [photoPositionY, setPhotoPositionY] = useState<number>(() => {
-    const saved = localStorage.getItem('miguel_photo_pos_y');
+    const saved = localStorage.getItem('miguel_photo_pos_y_v2');
     return saved !== null ? parseInt(saved, 10) : 15;
   });
 
   // Aspect ratio: 'portrait' (4:5) or 'square' (1:1)
   const [photoAspect, setPhotoAspect] = useState<'portrait' | 'square'>(() => {
-    return (localStorage.getItem('miguel_photo_aspect') as 'portrait' | 'square') || 'portrait';
+    return (localStorage.getItem('miguel_photo_aspect_v2') as 'portrait' | 'square') || 'portrait';
   });
 
   const [showFramingTools, setShowFramingTools] = useState(false);
 
   const handleUpdatePosY = (newY: number) => {
     setPhotoPositionY(newY);
-    localStorage.setItem('miguel_photo_pos_y', newY.toString());
+    localStorage.setItem('miguel_photo_pos_y_v2', newY.toString());
   };
 
   const handleUpdateAspect = (aspect: 'portrait' | 'square') => {
     setPhotoAspect(aspect);
-    localStorage.setItem('miguel_photo_aspect', aspect);
+    localStorage.setItem('miguel_photo_aspect_v2', aspect);
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,7 +86,7 @@ export const Hero: React.FC<HeroProps> = ({
     reader.onload = () => {
       const result = reader.result as string;
       setUploadedRealPhoto(result);
-      localStorage.setItem('miguel_custom_real_photo', result);
+      localStorage.setItem('miguel_custom_real_photo_v2', result);
       if (onUpdateAvatar) {
         onUpdateAvatar(result);
       }
