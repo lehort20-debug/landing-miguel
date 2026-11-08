@@ -9,7 +9,7 @@ export const defaultPortfolio: PortfolioData = {
     location: 'Madrid, España · Proyectos en España y en el exterior',
     email: 'miguelgarciaamador@hotmail.com',
     phone: '+34 613 370 218',
-    avatarUrl: '/foto-miguel.svg',
+    avatarUrl: '/foto-miguel.jpg',
     availability: 'available',
     availabilityText: 'Consultoría de dirección para pymes y empresas familiares',
     socialLinks: {

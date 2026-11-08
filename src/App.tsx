@@ -16,7 +16,7 @@ import { ExportModal } from './components/ExportModal';
 import { QRCodeModal } from './components/QRCodeModal';
 import { Sparkles, X } from 'lucide-react';
 
-const STORAGE_KEY = 'landing_miguel_garcia_amador_v1';
+const STORAGE_KEY = 'landing_miguel_garcia_amador_v2';
 
 export default function App() {
   // Load saved state or default
@@ -33,7 +33,7 @@ export default function App() {
             prevAvatar !== '/leymis-real-headshot.jpg' &&
             prevAvatar !== '/Foto.png'
               ? prevAvatar
-              : '/foto-miguel.svg';
+              : '/foto-miguel.jpg';
           return {
             ...defaultPortfolio,
             personal: {
