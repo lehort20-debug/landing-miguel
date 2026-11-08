@@ -172,12 +172,12 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                 Agendar una llamada
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-                Elige el día y la hora que mejor te vengan y hablamos 30 minutos por videollamada.
+                Escríbeme por WhatsApp el día y la hora que mejor te vengan y hablamos 30 minutos por videollamada.
               </p>
             </div>
 
             <a
-              href="https://calendar.app.google/MctgYjLJqXKND6279"
+              href="https://wa.me/34613370218?text=Hola%20Miguel%2C%20me%20gustar%C3%ADa%20reservar%20una%20llamada%20de%2030%20minutos."
               target="_blank"
               rel="noreferrer"
               className="w-full py-3.5 px-6 rounded-2xl font-bold text-sm text-white bg-indigo-600 hover:bg-indigo-700 shadow-md transition-all active:scale-98 flex items-center justify-center gap-2 cursor-pointer mt-6"

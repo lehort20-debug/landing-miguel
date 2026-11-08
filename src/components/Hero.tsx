@@ -160,7 +160,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto mb-8">
               <a
-                href="https://calendar.app.google/MctgYjLJqXKND6279"
+                href="https://wa.me/34613370218?text=Hola%20Miguel%2C%20me%20gustar%C3%ADa%20reservar%20una%20llamada%20de%2030%20minutos."
                 target="_blank"
                 rel="noreferrer"
                 id="btn-hero-contact"
