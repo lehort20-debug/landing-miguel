@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Paleta de marca de Miguel: el "indigo" del tema pasa a ser azul marino */
+@theme {
+  --color-indigo-50: #eef3f9;
+  --color-indigo-100: #d7e2f0;
+  --color-indigo-200: #afc4df;
+  --color-indigo-300: #86a5cc;
+  --color-indigo-400: #5a82b3;
+  --color-indigo-500: #2f5d8f;
+  --color-indigo-600: #12345a;
+  --color-indigo-700: #0f2c4c;
+  --color-indigo-800: #0b2340;
+  --color-indigo-900: #081a30;
+  --color-indigo-950: #051120;
+}

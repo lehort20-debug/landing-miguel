@@ -1,0 +1,8 @@
+{
+  "name": "Landing Page Personal CV",
+  "description": "Landing page personal y profesional interactiva generada a partir de tu CV, con personalización en vivo, temas y exportación.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
