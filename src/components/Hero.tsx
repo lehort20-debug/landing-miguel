@@ -96,7 +96,7 @@ export const Hero: React.FC<HeroProps> = ({
 
   const handleSelectPortrait = (type: 'ai' | 'real') => {
     if (type === 'ai') {
-      if (onUpdateAvatar) onUpdateAvatar('/foto-miguel.jpg');
+      if (onUpdateAvatar) onUpdateAvatar('/foto-miguel.svg');
     } else {
       if (uploadedRealPhoto) {
         if (onUpdateAvatar) onUpdateAvatar(uploadedRealPhoto);
@@ -267,7 +267,7 @@ export const Hero: React.FC<HeroProps> = ({
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src =
-                        '/foto-miguel.jpg';
+                        '/foto-miguel.svg';
                     }}
                   />
 
