@@ -180,15 +180,6 @@ export const Hero: React.FC<HeroProps> = ({
                 <span>Ver especialidades</span>
               </a>
 
-              <a
-                href="/CV-Miguel-Garcia.pdf"
-                download="CV-Miguel-Garcia.pdf"
-                id="btn-hero-cv"
-                className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-xs transition-colors"
-              >
-                <Download className="w-4 h-4" />
-                <span>Descargar CV</span>
-              </a>
 
               <button
                 id="btn-hero-qr-share"
@@ -199,6 +190,16 @@ export const Hero: React.FC<HeroProps> = ({
                 <QrCode className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                 <span className="text-indigo-600 dark:text-indigo-400">Compartir QR</span>
               </button>
+
+              <a
+                href="/CV-Miguel-Garcia.pdf"
+                download="CV-Miguel-Garcia.pdf"
+                id="btn-hero-cv"
+                className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-xs transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                <span>Descargar CV</span>
+              </a>
             </div>
 
             {/* Social Links Row */}
