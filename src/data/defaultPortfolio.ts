@@ -6,7 +6,7 @@ export const defaultPortfolio: PortfolioData = {
     title: 'Internacionalización · Relevo generacional · Profesionalización · Reflotación de empresas',
     tagline: '30 años dirigiendo empresas en 26 países. Ahora, al lado de la tuya.',
     bio: 'Llevo 30 años dirigiendo empresas en 26 países. Ahora pongo esa experiencia al servicio de pymes y empresas familiares que necesitan crecer, ordenarse, cambiar de manos o salir de una mala racha.',
-    location: 'Madrid, España · Proyectos en España y en el exterior',
+    location: '',
     email: 'miguelgarciaamador@hotmail.com',
     phone: '+34 613 370 218',
     avatarUrl: '/foto-miguel.jpg',
@@ -201,7 +201,7 @@ export const defaultPortfolio: PortfolioData = {
     {
       id: 'edu-2',
       degree: 'Licenciatura en Ciencias Económicas y Empresariales',
-      institution: 'Universidad de Alcalá, Madrid',
+      institution: 'Universidad de Alcalá',
       period: 'Licenciatura',
       details: 'Economía, finanzas y dirección de empresas.',
     },

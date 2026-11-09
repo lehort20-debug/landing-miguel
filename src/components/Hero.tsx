@@ -145,10 +145,12 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Location & Quick Info */}
             <div className="flex flex-wrap items-center gap-y-2 gap-x-5 text-sm text-slate-500 dark:text-slate-400 mb-8">
-              <div className="flex items-center gap-1.5">
-                <MapPin className="w-4 h-4 text-slate-400" />
-                <span>{personal.location}</span>
-              </div>
+              {personal.location && (
+                <div className="flex items-center gap-1.5">
+                  <MapPin className="w-4 h-4 text-slate-400" />
+                  <span>{personal.location}</span>
+                </div>
+              )}
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 <span className="font-medium text-slate-700 dark:text-slate-300">
