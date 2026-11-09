@@ -74,7 +74,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
           <div className="flex flex-col shrink-0">
             <span className="text-[15px] sm:text-[17px] font-bold leading-tight whitespace-nowrap">
-              Miguel <span className={theme.accentText}>García Amador</span>
+              Miguel <span className={theme.accentText}>García</span>
             </span>
           </div>
         </a>

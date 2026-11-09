@@ -2,7 +2,7 @@ import { PortfolioData } from '../types';
 
 export const defaultPortfolio: PortfolioData = {
   personal: {
-    fullName: 'Miguel García Amador',
+    fullName: 'Miguel García',
     title: 'Internacionalización · Relevo generacional · Profesionalización · Reflotación de empresas',
     tagline: '30 años dirigiendo empresas en 26 países. Ahora, al lado de la tuya.',
     bio: 'Llevo 30 años dirigiendo empresas en 26 países. Ahora pongo esa experiencia al servicio de pymes y empresas familiares que necesitan crecer, ordenarse, cambiar de manos o salir de una mala racha.',
@@ -214,7 +214,7 @@ export const defaultPortfolio: PortfolioData = {
 
 export const sampleProfiles: { label: string; role: string; data: Partial<PortfolioData> }[] = [
   {
-    label: 'Miguel García Amador',
+    label: 'Miguel García',
     role: 'Consultoría de dirección para pymes',
     data: defaultPortfolio,
   },

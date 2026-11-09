@@ -13,7 +13,7 @@ import {
 import { PortfolioData, ThemeColor } from '../types';
 import { themeConfigs } from '../lib/theme';
 
-export const FIXED_PORTFOLIO_URL = 'https://miguel-garcia-amador.vercel.app';
+export const FIXED_PORTFOLIO_URL = 'https://miguel-garcia.vercel.app';
 
 interface QRCodeModalProps {
   isOpen: boolean;

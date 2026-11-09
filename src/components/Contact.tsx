@@ -69,7 +69,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
         },
         body: JSON.stringify({
           access_key: 'd7a26fd7-a56a-489f-9e65-a62c3dd0229b',
-          subject: 'Nuevo mensaje desde la web de Miguel García Amador',
+          subject: 'Nuevo mensaje desde la web de Miguel García',
           name: formData.name,
           company: formData.company || 'No especificada',
           email: formData.email,
