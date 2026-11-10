@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FolderGit2, ExternalLink, Github, CheckCircle2 } from 'lucide-react';
 import { ProjectItem, ThemeColor } from '../types';
 import { themeConfigs } from '../lib/theme';
+import { ui } from '../i18n';
 
 interface ProjectsProps {
   projects: ProjectItem[];
@@ -21,15 +22,15 @@ export const Projects: React.FC<ProjectsProps> = ({
   projects,
   themeColor,
 }) => {
-  const [activeCategory, setActiveCategory] = useState<string>('Todos');
+  const [activeCategory, setActiveCategory] = useState<string>(ui.proj.all);
   const theme = themeConfigs[themeColor];
 
   // Derive categories dynamically from existing projects while keeping 'Todos' first
   const projectCats = Array.from(new Set(projects.map((p) => p.category))).filter(Boolean);
-  const categories = ['Todos', ...projectCats];
+  const categories = [ui.proj.all, ...projectCats];
 
   const filteredProjects =
-    activeCategory === 'Todos'
+    activeCategory === ui.proj.all
       ? projects
       : projects.filter((p) => p.category === activeCategory);
 
@@ -41,13 +42,13 @@ export const Projects: React.FC<ProjectsProps> = ({
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-3 border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300">
               <FolderGit2 className={`w-3.5 h-3.5 ${theme.accentText}`} />
-              <span>Especialidades</span>
+              <span>{ui.proj.badge}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Cuatro momentos en los que una pyme necesita a alguien que ya lo ha hecho
+              {ui.proj.title}
             </h2>
             <p className="mt-2 text-base text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-              Cada encargo empieza con un diagnóstico de precio cerrado y, si tiene sentido, sigue con acompañamiento en la ejecución.
+              {ui.proj.subtitle}
             </p>
           </div>
 
@@ -127,7 +128,7 @@ export const Projects: React.FC<ProjectsProps> = ({
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className={`w-4 h-4 mt-0.5 shrink-0 ${theme.accentText}`} />
                       <div>
-                        <span className="font-bold text-slate-900 dark:text-white">Mi aportación: </span>
+                        <span className="font-bold text-slate-900 dark:text-white">{ui.proj.impact} </span>
                         <span>{project.impact.replace(/^Mi aportación:\s*/i, '')}</span>
                       </div>
                     </div>

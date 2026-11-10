@@ -2,6 +2,7 @@ import React from 'react';
 import { CheckCircle, Globe2, Award, Sparkles, Download } from 'lucide-react';
 import { PortfolioData, ThemeColor } from '../types';
 import { themeConfigs } from '../lib/theme';
+import { ui } from '../i18n';
 
 interface AboutProps {
   data: PortfolioData;
@@ -26,10 +27,10 @@ export const About: React.FC<AboutProps> = ({
         <div className="mb-12 text-left">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-3 border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300">
             <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-            <span>Sobre mí y forma de trabajar</span>
+            <span>{ui.about.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Experiencia de gran empresa, al servicio de la pyme
+            {ui.about.title}
           </h2>
         </div>
 
@@ -38,7 +39,7 @@ export const About: React.FC<AboutProps> = ({
           <div className="lg:col-span-7 space-y-6">
             <div className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                Por qué trabajar conmigo
+                {ui.about.why}
               </h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base whitespace-pre-line">
                 {about.story || personal.bio}
@@ -48,7 +49,7 @@ export const About: React.FC<AboutProps> = ({
               {about.keyPoints && about.keyPoints.length > 0 && (
                 <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
                   <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-                    Qué Puedo Aportar
+                    {ui.about.bring}
                   </h4>
                   <div className="grid grid-cols-1 gap-2.5">
                     {about.keyPoints.map((point, index) => (
@@ -72,7 +73,7 @@ export const About: React.FC<AboutProps> = ({
               <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
                   <Globe2 className={`w-5 h-5 ${theme.accentText}`} />
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">Idiomas</h3>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">{ui.about.languages}</h3>
                 </div>
                 <div className="space-y-3">
                   {about.languages.map((lang, idx) => (

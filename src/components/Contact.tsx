@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { PersonalDetails, ThemeColor } from '../types';
 import { themeConfigs } from '../lib/theme';
+import { ui } from '../i18n';
 
 interface ContactProps {
   personal: PersonalDetails;
@@ -69,9 +70,9 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
         },
         body: JSON.stringify({
           access_key: 'd7a26fd7-a56a-489f-9e65-a62c3dd0229b',
-          subject: 'Nuevo mensaje desde la web de Miguel García',
+          subject: ui.contact.subject,
           name: formData.name,
-          company: formData.company || 'No especificada',
+          company: formData.company || ui.contact.noCompany,
           email: formData.email,
           message: formData.message,
         }),
@@ -89,13 +90,13 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
       } else {
         setSubmitStatus('error');
         setErrorMessage(
-          result.message || 'Ha ocurrido un problema al enviar el formulario. Por favor, inténtalo de nuevo.'
+          ui.contact.errSend
         );
       }
     } catch {
       setSubmitStatus('error');
       setErrorMessage(
-        'No se pudo conectar con el servidor de envío. Por favor, inténtalo de nuevo o copia la dirección de email para escribirme directamente.'
+        ui.contact.errConn
       );
     } finally {
       setIsSubmitting(false);
@@ -109,17 +110,17 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold mb-3 border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 shadow-xs">
             <MessageCircle className="w-3.5 h-3.5 text-emerald-500" />
-            <span>Contacto</span>
+            <span>{ui.contact.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
-            ¿Hablamos?
+            {ui.contact.title}
           </h2>
           <div className="space-y-3 text-slate-600 dark:text-slate-300 text-base leading-relaxed max-w-xl mx-auto">
             <p>
-              Si tu empresa se ha estancado, quieres vender fuera o te preguntas quién la dirigirá mañana, hablemos.
+              {ui.contact.p1}
             </p>
             <p className="font-medium text-slate-800 dark:text-slate-200">
-              La primera llamada es de 30 minutos, sin compromiso, y lo que me cuentes se queda entre nosotros.
+              {ui.contact.p2}
             </p>
           </div>
         </div>
@@ -134,14 +135,14 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                   <MessageCircle className="w-6 h-6" />
                 </div>
                 <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-                  Respuesta Rápida
+                  {ui.contact.fast}
                 </span>
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                WhatsApp Directo
+                {ui.contact.waTitle}
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-                Contacta directamente conmigo a través de WhatsApp para concertar una entrevista o realizar cualquier consulta.
+                {ui.contact.waText}
               </p>
             </div>
 
@@ -152,7 +153,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
               className="w-full py-3.5 px-6 rounded-2xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all active:scale-98 flex items-center justify-center gap-2 cursor-pointer mt-6"
             >
               <MessageCircle className="w-5 h-5" />
-              <span>Abrir conversación en WhatsApp</span>
+              <span>{ui.contact.waBtn}</span>
               <ArrowRight className="w-4 h-4 ml-1" />
             </a>
           </div>
@@ -165,25 +166,25 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                   <Calendar className="w-6 h-6" />
                 </div>
                 <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
-                  Sin esperas
+                  {ui.contact.noWait}
                 </span>
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                Agendar una llamada
+                {ui.contact.callTitle}
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-                Escríbeme por WhatsApp el día y la hora que mejor te vengan y hablamos 30 minutos por videollamada.
+                {ui.contact.callText}
               </p>
             </div>
 
             <a
-              href="https://wa.me/34613370218?text=Hola%20Miguel%2C%20me%20gustar%C3%ADa%20reservar%20una%20llamada%20de%2030%20minutos."
+              href={`https://wa.me/34613370218?text=${encodeURIComponent(ui.whatsBookMsg)}`}
               target="_blank"
               rel="noreferrer"
               className="w-full py-3.5 px-6 rounded-2xl font-bold text-sm text-white bg-indigo-600 hover:bg-indigo-700 shadow-md transition-all active:scale-98 flex items-center justify-center gap-2 cursor-pointer mt-6"
             >
               <Calendar className="w-5 h-5" />
-              <span>Reservar llamada</span>
+              <span>{ui.contact.callBtn}</span>
               <ArrowRight className="w-4 h-4 ml-1" />
             </a>
           </div>
@@ -196,14 +197,14 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                   <Mail className="w-6 h-6" />
                 </div>
                 <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
-                  Te respondo en 24 h
+                  {ui.contact.reply24}
                 </span>
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                Déjame un mensaje
+                {ui.contact.msgTitle}
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
-                Para propuestas de colaboración, nuevos proyectos o consultas profesionales.
+                {ui.contact.msgText}
               </p>
 
               {/* Form */}
@@ -213,7 +214,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                     htmlFor="contact-name"
                     className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1"
                   >
-                    Nombre <span className="text-rose-500">*</span>
+                    {ui.contact.name} <span className="text-rose-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -222,7 +223,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Tu nombre completo"
+                    placeholder={ui.contact.namePh}
                     className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
                   />
                 </div>
@@ -232,7 +233,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                     htmlFor="contact-company"
                     className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1"
                   >
-                    Empresa <span className="text-slate-400 text-[10px] font-normal">(opcional)</span>
+                    {ui.contact.company} <span className="text-slate-400 text-[10px] font-normal">{ui.contact.optional}</span>
                   </label>
                   <input
                     type="text"
@@ -240,7 +241,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    placeholder="Empresa o proyecto"
+                    placeholder={ui.contact.companyPh}
                     className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
                   />
                 </div>
@@ -250,7 +251,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                     htmlFor="contact-email"
                     className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1"
                   >
-                    Email <span className="text-rose-500">*</span>
+                    {ui.contact.email} <span className="text-rose-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -259,7 +260,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="tu@email.com"
+                    placeholder={ui.contact.emailPh}
                     className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
                   />
                 </div>
@@ -269,7 +270,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                     htmlFor="contact-message"
                     className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1"
                   >
-                    Mensaje <span className="text-rose-500">*</span>
+                    {ui.contact.message} <span className="text-rose-500">*</span>
                   </label>
                   <textarea
                     id="contact-message"
@@ -278,7 +279,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                     rows={3}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="¿En qué puedo ayudarte?"
+                    placeholder={ui.contact.messagePh}
                     className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all resize-none"
                   />
                 </div>
@@ -286,14 +287,14 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                 {submitStatus === 'success' && (
                   <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-xs font-semibold text-emerald-700 dark:text-emerald-300 flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>¡Gracias! Te responderé en menos de 24 horas laborables.</span>
+                    <span>{ui.contact.thanks}</span>
                   </div>
                 )}
 
                 {submitStatus === 'error' && (
                   <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 text-xs font-medium text-rose-700 dark:text-rose-300 flex items-start gap-2">
                     <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-                    <span>{errorMessage || 'Ha ocurrido un problema al enviar el mensaje. Por favor, inténtalo de nuevo.'}</span>
+                    <span>{errorMessage || ui.contact.errGeneric}</span>
                   </div>
                 )}
 
@@ -305,12 +306,12 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>Enviando mensaje...</span>
+                      <span>{ui.contact.sending}</span>
                     </>
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      <span>Enviar mensaje</span>
+                      <span>{ui.contact.send}</span>
                     </>
                   )}
                 </button>
@@ -328,13 +329,13 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                   <>
                     <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
                     <span className="text-emerald-600 dark:text-emerald-400 font-medium">
-                      ¡Email copiado ({personal.email})!
+                      {ui.contact.copied} ({personal.email})
                     </span>
                   </>
                 ) : (
                   <>
                     <Copy className="w-3.5 h-3.5" />
-                    <span>Copiar dirección de email</span>
+                    <span>{ui.contact.copyEmail}</span>
                   </>
                 )}
               </button>
@@ -349,9 +350,9 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
               <Clock className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs text-slate-400 font-medium">Disponibilidad Actual</div>
+              <div className="text-xs text-slate-400 font-medium">{ui.contact.availLabel}</div>
               <div className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
-                Proyectos en España y en el exterior · Presencial o en remoto
+                {ui.contact.availValue}
               </div>
             </div>
           </div>

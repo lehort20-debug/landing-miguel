@@ -2,6 +2,7 @@ import React from 'react';
 import { GraduationCap, Calendar, Award } from 'lucide-react';
 import { EducationItem, ThemeColor } from '../types';
 import { themeConfigs } from '../lib/theme';
+import { ui } from '../i18n';
 
 interface EducationProps {
   education: EducationItem[];
@@ -18,13 +19,13 @@ export const Education: React.FC<EducationProps> = ({ education, themeColor }) =
         <div className="mb-14 text-left">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-3 border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300">
             <GraduationCap className={`w-3.5 h-3.5 ${theme.accentText}`} />
-            <span>Formación</span>
+            <span>{ui.edu.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Formación
+            {ui.edu.title}
           </h2>
           <p className="mt-2 text-base text-slate-600 dark:text-slate-400 max-w-xl">
-            Economía y dirección de proyectos industriales, en España y en Francia.
+            {ui.edu.subtitle}
           </p>
         </div>
 

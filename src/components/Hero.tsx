@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { PortfolioData, ThemeColor } from '../types';
 import { themeConfigs } from '../lib/theme';
+import { ui } from '../i18n';
 
 interface HeroProps {
   data: PortfolioData;
@@ -121,13 +122,13 @@ export const Hero: React.FC<HeroProps> = ({
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span>{personal.availabilityText || 'Disponible para nuevos proyectos · Presencial o híbrido'}</span>
+              <span>{personal.availabilityText}</span>
             </div>
 
             {/* Name & Title */}
             <div className="@container w-full">
               <h1 className="whitespace-nowrap text-[clamp(20px,calc(100cqi/15.2),60px)] font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-4">
-                Hola, soy{' '}
+                {ui.hero.hello}{' '}
                 <span className={`bg-gradient-to-r ${theme.gradientText} bg-clip-text text-transparent`}>
                   {personal.fullName}
                 </span>
@@ -162,14 +163,14 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto mb-8">
               <a
-                href="https://wa.me/34613370218?text=Hola%20Miguel%2C%20me%20gustar%C3%ADa%20reservar%20una%20llamada%20de%2030%20minutos."
+                href={`https://wa.me/34613370218?text=${encodeURIComponent(ui.whatsBookMsg)}`}
                 target="_blank"
                 rel="noreferrer"
                 id="btn-hero-contact"
                 className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm shadow-md transition-all hover:shadow-lg active:scale-95 ${theme.accentBg}`}
               >
                 <Calendar className="w-4 h-4" />
-                <span>Agendar una llamada</span>
+                <span>{ui.hero.bookCall}</span>
               </a>
 
               <a
@@ -177,7 +178,7 @@ export const Hero: React.FC<HeroProps> = ({
                 id="btn-hero-projects"
                 className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-xs transition-colors"
               >
-                <span>Ver especialidades</span>
+                <span>{ui.hero.seeSpecialties}</span>
               </a>
 
 
@@ -185,27 +186,27 @@ export const Hero: React.FC<HeroProps> = ({
                 id="btn-hero-qr-share"
                 onClick={onOpenQrModal}
                 className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm border-2 border-indigo-600 dark:border-indigo-500 bg-transparent text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50/60 dark:hover:bg-indigo-950/30 hover:border-indigo-700 dark:hover:border-indigo-400 shadow-xs transition-all cursor-pointer active:scale-95"
-                title="Ver y compartir código QR de mi landing page"
+                title={ui.hero.shareQrTitle}
               >
                 <QrCode className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                <span className="text-indigo-600 dark:text-indigo-400">Compartir QR</span>
+                <span className="text-indigo-600 dark:text-indigo-400">{ui.hero.shareQr}</span>
               </button>
 
               <a
-                href="/CV-Miguel-Garcia.pdf"
-                download="CV-Miguel-Garcia.pdf"
+                href={ui.hero.cvFile}
+                download={ui.hero.cvFile.slice(1)}
                 id="btn-hero-cv"
                 className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-xs transition-colors"
               >
                 <Download className="w-4 h-4" />
-                <span>Descargar CV</span>
+                <span>{ui.hero.downloadCv}</span>
               </a>
             </div>
 
             {/* Social Links Row */}
             <div className="flex flex-wrap items-center gap-3">
               <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                Redes:
+                {ui.hero.social}
               </span>
               {personal.socialLinks.linkedin && (
                 <a
@@ -246,7 +247,7 @@ export const Hero: React.FC<HeroProps> = ({
                   target="_blank"
                   rel="noreferrer"
                   className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-                  aria-label="Sitio Web"
+                  aria-label={ui.hero.website}
                 >
                   <Globe className="w-4 h-4" />
                 </a>
@@ -422,17 +423,17 @@ export const Hero: React.FC<HeroProps> = ({
                 {/* Quick Info pills inside card */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
-                    <span className="text-slate-500 dark:text-slate-400">Estado</span>
+                    <span className="text-slate-500 dark:text-slate-400">{ui.hero.status}</span>
                     <span className="font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      {personal.availability === 'available' ? 'Disponible' : 'En proyectos'}
+                      {personal.availability === 'available' ? ui.hero.available : ui.hero.busy}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
-                    <span className="text-slate-500 dark:text-slate-400">Modalidad</span>
+                    <span className="text-slate-500 dark:text-slate-400">{ui.hero.mode}</span>
                     <span className="font-medium text-slate-700 dark:text-slate-300">
-                      Presencial / Híbrido
+                      {ui.hero.modeValue}
                     </span>
                   </div>
 
@@ -441,7 +442,7 @@ export const Hero: React.FC<HeroProps> = ({
                       href="#experiencia"
                       className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors"
                     >
-                      <span>Ver Trayectoria Profesional</span>
+                      <span>{ui.hero.seeCareer}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                   </div>

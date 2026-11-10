@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { defaultPortfolio } from './data/defaultPortfolio';
+import { defaultPortfolio as esPortfolio } from './data/defaultPortfolio';
+import { portfolioEn, portfolioFr } from './data/portfolioI18n';
+import { lang } from './i18n';
+
+const defaultPortfolio = lang === 'en' ? portfolioEn : lang === 'fr' ? portfolioFr : esPortfolio;
 import { PortfolioData, ThemeColor } from './types';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -16,7 +20,7 @@ import { ExportModal } from './components/ExportModal';
 import { QRCodeModal } from './components/QRCodeModal';
 import { Sparkles, X } from 'lucide-react';
 
-const STORAGE_KEY = 'landing_miguel_garcia_v8';
+const STORAGE_KEY = `landing_miguel_garcia_v9_${lang}`;
 
 export default function App() {
   // Load saved state or default
